@@ -12,7 +12,7 @@ public class EmbeddedJettyExample {
 
     public static void main(String[] args) {
         Server server = new Server(8680);
-server.setHandler(new HelloHandler());
+        server.setHandler(new HelloHandler());
         try {
             server.start();
             server.dumpStdErr();
@@ -21,15 +21,15 @@ server.setHandler(new HelloHandler());
             e.printStackTrace();
         }
     }
+
     public static class HelloHandler extends AbstractHandler {
 
-
         public HelloHandler() {
-        this("Hello Java Code Geeks - First Handler");
+            this("Hello Java Code Geeks - First Handler");
         }
 
         public HelloHandler(String arg) {
-            this(arg,null);
+            this(arg, null);
         }
 
         public HelloHandler(String arg1, String arg2) {
@@ -43,16 +43,15 @@ server.setHandler(new HelloHandler());
             response.setStatus(HttpServletResponse.SC_OK);
             PrintWriter out = response.getWriter();
             out.println(greetmessage);
-            if (bodymessage!=null){
+            if (bodymessage != null) {
                 out.println(bodymessage);
             }
             baseRequest.setHandled(true);
 
         }
+
         final String greetmessage;
         final String bodymessage;
-
-
     }
 
 }
